@@ -1,0 +1,233 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://tilemaps/bricks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tilemaps/grass.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tilemaps/metal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tilemaps/one-way_metal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/backgrounds/Yellow.png" type="Texture" id=5]
+[ext_resource path="res://players/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tilemaps/one-way_bricks.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tilemaps/one-way_grass.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/levels/level6.gd" type="Script" id=9]
+[ext_resource path="res://traps/fan.tscn" type="PackedScene" id=10]
+[ext_resource path="res://items/fruits/strawberry.tscn" type="PackedScene" id=11]
+[ext_resource path="res://items/checkpoints/start.tscn" type="PackedScene" id=12]
+[ext_resource path="res://enemies/mushroom.tscn" type="PackedScene" id=13]
+[ext_resource path="res://traps/saw.tscn" type="PackedScene" id=14]
+[ext_resource path="res://items/checkpoints/end.tscn" type="PackedScene" id=15]
+[ext_resource path="res://traps/trampoline.tscn" type="PackedScene" id=16]
+[ext_resource path="res://hud/hud.tscn" type="PackedScene" id=17]
+
+[node name="level6" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="passed_time_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="background" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="background"]
+motion_mirroring = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="background/ParallaxLayer"]
+scale = Vector2( 30, 30 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tilemaps" type="Node2D" parent="."]
+
+[node name="grass" parent="tilemaps" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -524212, 2, 0, -524211, 2, 1, -524210, 2, 1, -524209, 2, 1, -524208, 2, 2, -458676, 2, 131072, -458675, 2, 131073, -458674, 2, 131073, -458673, 2, 131073, -458672, 2, 131074, -393177, 2, 0, -393176, 2, 1, -393175, 2, 1, -393174, 2, 1, -393173, 2, 2, -393166, 2, 0, -393165, 2, 1, -393164, 2, 1, -393163, 2, 1, -393162, 2, 2, -327641, 2, 131072, -327640, 2, 131073, -327639, 2, 131073, -327638, 2, 131073, -327637, 2, 131074, -327630, 2, 131072, -327629, 2, 131073, -327628, 2, 131073, -327627, 2, 131073, -327626, 2, 131074, 589855, 2, 0, 589856, 2, 1, 589857, 2, 1, 589858, 2, 1, 589859, 2, 1, 589860, 2, 2, 655391, 2, 131072, 655392, 2, 131073, 655393, 2, 131073, 655394, 2, 131073, 655395, 2, 131073, 655396, 2, 131074, 786485, 2, 0, 786486, 2, 1, 786487, 2, 1, 786488, 2, 1, 786489, 2, 1, 786490, 2, 1, 786491, 2, 2, 852021, 2, 131072, 852022, 2, 131073, 852023, 2, 131073, 852024, 2, 131073, 852025, 2, 131073, 852026, 2, 131073, 852027, 2, 131074, 1376280, 2, 0, 1376281, 2, 1, 1376282, 2, 1, 1376283, 2, 1, 1376284, 2, 1, 1376285, 2, 2, 1441816, 2, 131072, 1441817, 2, 131073, 1441818, 2, 131073, 1441819, 2, 131073, 1441820, 2, 131073, 1441821, 2, 131074, 1703951, 2, 0, 1703952, 2, 1, 1703953, 2, 1, 1703954, 2, 1, 1703955, 2, 1, 1703956, 2, 2, 1769487, 2, 131072, 1769488, 2, 131073, 1769489, 2, 131073, 1769490, 2, 131073, 1769491, 2, 131073, 1769492, 2, 131074, 2031616, 2, 0, 2031617, 2, 1, 2031618, 2, 1, 2031619, 2, 1, 2031620, 2, 1, 2031621, 2, 1, 2031622, 2, 1, 2031623, 2, 1, 2031624, 2, 1, 2031625, 2, 1, 2031626, 2, 1, 2031627, 2, 2, 2097152, 2, 65536, 2097153, 2, 65537, 2097154, 2, 65537, 2097155, 2, 65537, 2097156, 2, 65537, 2097157, 2, 65537, 2097158, 2, 65537, 2097159, 2, 65537, 2097160, 2, 65537, 2097161, 2, 65537, 2097162, 2, 65537, 2097163, 2, 65538, 2162688, 2, 65536, 2162689, 2, 65537, 2162690, 2, 65537, 2162691, 2, 65537, 2162692, 2, 65537, 2162693, 2, 65537, 2162694, 2, 65537, 2162695, 2, 65537, 2162696, 2, 65537, 2162697, 2, 65537, 2162698, 2, 65537, 2162699, 2, 65538, 2228224, 2, 65536, 2228225, 2, 65537, 2228226, 2, 65537, 2228227, 2, 65537, 2228228, 2, 65537, 2228229, 2, 65537, 2228230, 2, 65537, 2228231, 2, 65537, 2228232, 2, 65537, 2228233, 2, 65537, 2228234, 2, 65537, 2228235, 2, 65538, 2293760, 2, 65536, 2293761, 2, 65537, 2293762, 2, 65537, 2293763, 2, 65537, 2293764, 2, 65537, 2293765, 2, 65537, 2293766, 2, 65537, 2293767, 2, 65537, 2293768, 2, 65537, 2293769, 2, 65537, 2293770, 2, 65537, 2293771, 2, 65538, 2359296, 2, 65536, 2359297, 2, 65537, 2359298, 2, 65537, 2359299, 2, 65537, 2359300, 2, 65537, 2359301, 2, 65537, 2359302, 2, 65537, 2359303, 2, 65537, 2359304, 2, 65537, 2359305, 2, 65537, 2359306, 2, 65537, 2359307, 2, 65538, 2359357, 2, 0, 2359358, 2, 1, 2359359, 2, 1, 2359360, 2, 1, 2359361, 2, 1, 2359362, 2, 1, 2359363, 2, 1, 2359364, 2, 2, 2359376, 2, 0, 2359377, 2, 1, 2359378, 2, 1, 2359379, 2, 1, 2359380, 2, 1, 2359381, 2, 1, 2359382, 2, 1, 2359383, 2, 2, 2424832, 2, 131072, 2424833, 2, 131073, 2424834, 2, 131073, 2424835, 2, 131073, 2424836, 2, 131073, 2424837, 2, 131073, 2424838, 2, 131073, 2424839, 2, 131073, 2424840, 2, 131073, 2424841, 2, 131073, 2424842, 2, 131073, 2424843, 2, 131074, 2424893, 2, 131072, 2424894, 2, 131073, 2424895, 2, 131073, 2424896, 2, 131073, 2424897, 2, 131073, 2424898, 2, 131073, 2424899, 2, 131073, 2424900, 2, 131074, 2424912, 2, 131072, 2424913, 2, 131073, 2424914, 2, 131073, 2424915, 2, 131073, 2424916, 2, 131073, 2424917, 2, 131073, 2424918, 2, 131073, 2424919, 2, 131074 )
+
+[node name="metal" parent="tilemaps" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -524208, 1, 3, -524201, 1, 3, -458672, 1, 65539, -458665, 1, 65539, -393136, 1, 65539, -393129, 1, 65539, -327600, 1, 65539, -327593, 1, 65539, -262064, 1, 65539, -262057, 1, 65539, -196528, 1, 65539, -196521, 1, 65539, -130992, 1, 65539, -130985, 1, 65539, -65456, 1, 65539, -65449, 1, 65539, 80, 1, 65539, 87, 1, 65539, 65616, 1, 65539, 65623, 1, 65539, 131152, 1, 65539, 131159, 1, 65539, 196688, 1, 65539, 196695, 1, 65539, 262224, 1, 65539, 262231, 1, 65539, 327760, 1, 65539, 327767, 1, 65539, 458751, 1, 3, 393296, 1, 65539, 393303, 1, 65539, 524287, 1, 65539, 458832, 1, 65539, 458839, 1, 65539, 589823, 1, 65539, 524368, 1, 65539, 524375, 1, 65539, 655359, 1, 65539, 589904, 1, 65539, 589911, 1, 65539, 720895, 1, 65539, 655440, 1, 65539, 655447, 1, 65539, 786431, 1, 65539, 720976, 1, 65539, 720983, 1, 65539, 851967, 1, 65539, 786512, 1, 65539, 786519, 1, 65539, 917503, 1, 65539, 852048, 1, 65539, 852055, 1, 65539, 983039, 1, 65539, 917584, 1, 65539, 917591, 1, 65539, 1048575, 1, 65539, 983120, 1, 65539, 983127, 1, 65539, 1114111, 1, 65539, 1048656, 1, 65539, 1048663, 1, 65539, 1179647, 1, 65539, 1114192, 1, 65539, 1114199, 1, 65539, 1245183, 1, 65539, 1179728, 1, 65539, 1179735, 1, 65539, 1310719, 1, 65539, 1245264, 1, 65539, 1245271, 1, 65539, 1376255, 1, 65539, 1310800, 1, 65539, 1310807, 1, 65539, 1441791, 1, 65539, 1376336, 1, 65539, 1376343, 1, 65539, 1507327, 1, 65539, 1441872, 1, 65539, 1441879, 1, 65539, 1572863, 1, 65539, 1507408, 1, 65539, 1507415, 1, 65539, 1638399, 1, 65539, 1572944, 1, 65539, 1572951, 1, 65539, 1703935, 1, 65539, 1638480, 1, 65539, 1638487, 1, 65539, 1769471, 1, 65539, 1704016, 1, 65539, 1704023, 1, 65539, 1835007, 1, 65539, 1769552, 1, 65539, 1769559, 1, 65539, 1900543, 1, 65539, 1835088, 1, 65539, 1835095, 1, 65539, 1966079, 1, 65539, 1900624, 1, 65539, 1900631, 1, 65539, 2031615, 1, 131075, 1966160, 1, 65539, 1966167, 1, 65539, 2031696, 1, 65539, 2031703, 1, 65539, 2097232, 1, 65539, 2097239, 1, 65539, 2162768, 1, 65539, 2162775, 1, 65539, 2228304, 1, 65539, 2228311, 1, 65539, 2293840, 1, 65539, 2293847, 1, 65539, 2359376, 1, 65539, 2359383, 1, 65539, 2424912, 1, 131075, 2424919, 1, 131075 )
+
+[node name="bricks" parent="tilemaps" instance=ExtResource( 1 )]
+
+[node name="one-way_grass" parent="tilemaps" instance=ExtResource( 8 )]
+tile_data = PoolIntArray( -524221, 2, 0, -524220, 2, 2, -458685, 2, 131072, -458684, 2, 131074, 393283, 2, 0, 393284, 2, 2, 458819, 2, 131072, 458820, 2, 131074, 1376323, 2, 0, 1376324, 2, 2, 1441859, 2, 131072, 1441860, 2, 131074 )
+
+[node name="one-way_metal" parent="tilemaps" instance=ExtResource( 4 )]
+
+[node name="one-way_bricks" parent="tilemaps" instance=ExtResource( 7 )]
+
+[node name="labels" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="checkpoints" type="Node2D" parent="."]
+
+[node name="start" parent="checkpoints" instance=ExtResource( 12 )]
+position = Vector2( 147, 464 )
+
+[node name="end" parent="checkpoints" instance=ExtResource( 15 )]
+position = Vector2( 1344, 544 )
+
+[node name="traps" type="Node2D" parent="."]
+
+[node name="fan1" parent="traps" instance=ExtResource( 10 )]
+position = Vector2( 468, 332 )
+
+[node name="saw1" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 872, -40 )
+
+[node name="saw2" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 952, 0 )
+
+[node name="saw3" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 872, 40 )
+
+[node name="saw4" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 952, 80 )
+
+[node name="saw5" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 952, 248 )
+
+[node name="saw6" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 1024, 344 )
+
+[node name="saw7" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 952, 424 )
+
+[node name="saw8" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 1024, 520 )
+
+[node name="saw9" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 1344, -104 )
+
+[node name="saw10" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 1344, 496 )
+
+[node name="saw11" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 1344, 192 )
+
+[node name="saw12" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 1344, 44 )
+
+[node name="saw13" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 1344, 340 )
+
+[node name="saw14" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 1344, 192 )
+
+[node name="trampoline1" parent="traps" instance=ExtResource( 16 )]
+position = Vector2( 1089, 562 )
+
+[node name="trampoline2" parent="traps" instance=ExtResource( 16 )]
+position = Vector2( 1089, 322 )
+
+[node name="trampoline3" parent="traps" instance=ExtResource( 16 )]
+position = Vector2( 1089, 82 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="mushroom" parent="enemies" instance=ExtResource( 13 )]
+position = Vector2( 536, 128 )
+
+[node name="players" type="Node2D" parent="."]
+
+[node name="pink_man" parent="players" instance=ExtResource( 6 )]
+position = Vector2( 28, 312 )
+
+[node name="Camera2D" type="Camera2D" parent="players/pink_man"]
+current = true
+zoom = Vector2( 0.75, 0.75 )
+process_mode = 0
+limit_left = 0
+limit_bottom = 590
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+editor_draw_limits = true
+
+[node name="fruits" type="Node2D" parent="."]
+
+[node name="strawberry1" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 248, 392 )
+
+[node name="strawberry2" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 288, 392 )
+
+[node name="strawberry3" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 328, 392 )
+
+[node name="strawberry6" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 468, 248 )
+
+[node name="strawberry7" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 468, 216 )
+
+[node name="strawberry8" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 468, 184 )
+
+[node name="strawberry9" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 468, 152 )
+
+[node name="strawberry10" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 468, 120 )
+
+[node name="strawberry11" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 632, -120 )
+
+[node name="strawberry12" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 648, -120 )
+
+[node name="strawberry13" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 664, -120 )
+
+[node name="strawberry14" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 680, -120 )
+
+[node name="strawberry15" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 696, -120 )
+
+[node name="strawberry16" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 200 )
+
+[node name="strawberry17" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 232 )
+
+[node name="strawberry18" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 264 )
+
+[node name="strawberry19" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 296 )
+
+[node name="strawberry20" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 328 )
+
+[node name="strawberry21" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 360 )
+
+[node name="strawberry22" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 392 )
+
+[node name="strawberry23" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 424 )
+
+[node name="strawberry24" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 456 )
+
+[node name="strawberry25" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 488 )
+
+[node name="strawberry26" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 520 )
+
+[node name="strawberry27" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 552 )
+
+[node name="hud" parent="." instance=ExtResource( 17 )]
+
+[connection signal="timeout" from="passed_time_timer" to="." method="_on_passed_time_timer_timeout"]

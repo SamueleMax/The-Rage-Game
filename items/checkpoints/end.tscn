@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/items/checkpoints/end/End (Idle).png" type="Texture" id=1]
+[ext_resource path="res://scripts/items/end_checkpoint.gd" type="Script" id=2]
+[ext_resource path="res://assets/items/checkpoints/end/End (Pressed) (64x64).png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=208]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=209]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=210]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=211]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=212]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=213]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=214]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=215]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 448, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=216]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 208 ), SubResource( 209 ), SubResource( 210 ), SubResource( 211 ), SubResource( 212 ), SubResource( 213 ), SubResource( 214 ), SubResource( 215 ) ],
+"loop": false,
+"name": "reached",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=207]
+extents = Vector2( 23, 22 )
+
+[node name="end" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="reached_sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 216 )
+animation = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 10 )
+shape = SubResource( 207 )
+
+[connection signal="body_entered" from="." to="." method="_on_end_body_entered"]

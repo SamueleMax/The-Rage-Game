@@ -1,0 +1,193 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://tilemaps/bricks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tilemaps/grass.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tilemaps/metal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tilemaps/one-way_metal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/backgrounds/Yellow.png" type="Texture" id=5]
+[ext_resource path="res://players/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tilemaps/one-way_bricks.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tilemaps/one-way_grass.tscn" type="PackedScene" id=8]
+[ext_resource path="res://traps/falling_platform.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/levels/level3.gd" type="Script" id=10]
+[ext_resource path="res://items/fruits/banana.tscn" type="PackedScene" id=11]
+[ext_resource path="res://items/checkpoints/start.tscn" type="PackedScene" id=12]
+[ext_resource path="res://hud/hud.tscn" type="PackedScene" id=17]
+[ext_resource path="res://items/checkpoints/end.tscn" type="PackedScene" id=18]
+
+[node name="level3" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="passed_time_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="background" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="background"]
+motion_mirroring = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="background/ParallaxLayer"]
+scale = Vector2( 30, 30 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tilemaps" type="Node2D" parent="."]
+
+[node name="grass" parent="tilemaps" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 983040, 0, 0, 983041, 0, 1, 983042, 0, 1, 983043, 0, 1, 983044, 0, 1, 983045, 0, 1, 983046, 0, 2, 1048576, 0, 65536, 1048577, 0, 65537, 1048578, 0, 65537, 1048579, 0, 65537, 1048580, 0, 65537, 1048581, 0, 65537, 1048582, 0, 65538, 1114112, 0, 65536, 1114113, 0, 65537, 1114114, 0, 65537, 1114115, 0, 65537, 1114116, 0, 65537, 1114117, 0, 65537, 1114118, 0, 65538, 1179648, 0, 131072, 1179649, 0, 131073, 1179650, 0, 131073, 1179651, 0, 131073, 1179652, 0, 131073, 1179653, 0, 131073, 1179654, 0, 131074, 1310828, 0, 0, 1310829, 0, 1, 1310830, 0, 1, 1310831, 0, 1, 1310832, 0, 2, 1310838, 0, 0, 1310839, 0, 1, 1310840, 0, 2, 1376364, 0, 131072, 1376365, 0, 131073, 1376366, 0, 131073, 1376367, 0, 131073, 1376368, 0, 131074, 1376374, 0, 131072, 1376375, 0, 131073, 1376376, 0, 131074 )
+
+[node name="metal" parent="tilemaps" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 458751, 1, 3, 524287, 1, 65539, 589823, 1, 65539, 655359, 1, 65539, 720895, 1, 65539, 786431, 1, 65539, 851967, 1, 65539, 917503, 1, 65539, 983039, 1, 65539, 1048575, 1, 65539, 1114111, 1, 65539, 1179647, 1, 65539, 1245183, 1, 65539, 1310719, 1, 65539, 1376255, 1, 65539, 1441791, 1, 65539, 1507327, 1, 65539, 1572863, 1, 65539, 1638399, 1, 65539, 1703935, 1, 65539, 1769471, 1, 65539, 1835007, 1, 65539, 1900543, 1, 65539, 1966079, 1, 65539, 2031615, 1, 131075 )
+
+[node name="bricks" parent="tilemaps" instance=ExtResource( 1 )]
+
+[node name="one-way_grass" parent="tilemaps" instance=ExtResource( 8 )]
+
+[node name="one-way_metal" parent="tilemaps" instance=ExtResource( 4 )]
+
+[node name="one-way_bricks" parent="tilemaps" instance=ExtResource( 7 )]
+
+[node name="labels" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="checkpoints" type="Node2D" parent="."]
+
+[node name="start" parent="checkpoints" instance=ExtResource( 12 )]
+position = Vector2( 83, 208 )
+
+[node name="end" parent="checkpoints" instance=ExtResource( 18 )]
+position = Vector2( 1912, 288 )
+
+[node name="traps" type="Node2D" parent="."]
+
+[node name="falling_platform1" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 224, 258 )
+
+[node name="falling_platform2" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 352, 258 )
+
+[node name="falling_platform3" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 480, 258 )
+
+[node name="falling_platform4" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 608, 258 )
+
+[node name="falling_platform5" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 736, 200 )
+
+[node name="falling_platform6" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 864, 136 )
+
+[node name="falling_platform7" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 992, 72 )
+
+[node name="falling_platform8" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 1152, 72 )
+
+[node name="falling_platform9" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 1280, 72 )
+
+[node name="falling_platform10" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 1448, 200 )
+
+[node name="falling_platform11" parent="traps" instance=ExtResource( 9 )]
+position = Vector2( 1624, 328 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="players" type="Node2D" parent="."]
+
+[node name="pink_man" parent="players" instance=ExtResource( 6 )]
+position = Vector2( 21, 215 )
+
+[node name="Camera2D" type="Camera2D" parent="players/pink_man"]
+current = true
+zoom = Vector2( 0.75, 0.75 )
+process_mode = 0
+limit_left = 0
+limit_bottom = 590
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+editor_draw_limits = true
+
+[node name="fruits" type="Node2D" parent="."]
+
+[node name="banana1" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 224, 224 )
+
+[node name="banana2" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 352, 224 )
+
+[node name="banana3" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 480, 224 )
+
+[node name="banana4" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 608, 224 )
+
+[node name="banana5" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 736, 168 )
+
+[node name="banana6" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 864, 104 )
+
+[node name="banana7" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 992, 40 )
+
+[node name="banana8" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1152, 40 )
+
+[node name="banana9" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1280, 40 )
+
+[node name="banana10" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1448, 168 )
+
+[node name="banana11" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1624, 296 )
+
+[node name="banana12" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1736, 312 )
+
+[node name="banana13" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1752, 312 )
+
+[node name="banana14" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1768, 312 )
+
+[node name="banana15" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1784, 312 )
+
+[node name="banana16" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1800, 312 )
+
+[node name="banana17" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1752, 296 )
+
+[node name="banana21" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1736, 296 )
+
+[node name="banana18" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1784, 296 )
+
+[node name="banana20" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1768, 296 )
+
+[node name="banana19" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1800, 296 )
+
+[node name="hud" parent="." instance=ExtResource( 17 )]
+
+[connection signal="timeout" from="passed_time_timer" to="." method="_on_passed_time_timer_timeout"]

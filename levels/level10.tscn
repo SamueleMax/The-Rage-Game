@@ -1,0 +1,141 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://tilemaps/bricks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tilemaps/grass.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tilemaps/metal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tilemaps/one-way_metal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/backgrounds/Yellow.png" type="Texture" id=5]
+[ext_resource path="res://players/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tilemaps/one-way_bricks.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tilemaps/one-way_grass.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/levels/level10.gd" type="Script" id=9]
+[ext_resource path="res://enemies/slime.tscn" type="PackedScene" id=10]
+[ext_resource path="res://traps/trampoline.tscn" type="PackedScene" id=11]
+[ext_resource path="res://items/checkpoints/start.tscn" type="PackedScene" id=12]
+[ext_resource path="res://enemies/trunk.tscn" type="PackedScene" id=13]
+[ext_resource path="res://traps/fan.tscn" type="PackedScene" id=14]
+[ext_resource path="res://enemies/mushroom.tscn" type="PackedScene" id=15]
+[ext_resource path="res://items/checkpoints/end.tscn" type="PackedScene" id=16]
+[ext_resource path="res://hud/hud.tscn" type="PackedScene" id=17]
+[ext_resource path="res://items/fruits/cherry.tscn" type="PackedScene" id=18]
+
+[node name="level10" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="passed_time_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="background" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="background"]
+motion_mirroring = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="background/ParallaxLayer"]
+scale = Vector2( 30, 30 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tilemaps" type="Node2D" parent="."]
+
+[node name="grass" parent="tilemaps" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -1048518, 2, 1, -1048517, 2, 1, -1048516, 2, 1, -131014, 2, 1, -131013, 2, 1, -131012, 2, 1, 852017, 2, 1, 852018, 2, 1, 852019, 2, 1, 1572889, 2, 1, 1572890, 2, 1, 1572891, 2, 1, 1769489, 2, 1, 1769490, 2, 1, 1769491, 2, 1, 1769506, 2, 0, 1769507, 2, 1, 1769508, 2, 2, 1835042, 2, 131072, 1835043, 2, 131073, 1835044, 2, 131074, 2031616, 2, 0, 2031617, 2, 1, 2031618, 2, 1, 2031619, 2, 1, 2031620, 2, 1, 2031621, 2, 1, 2031622, 2, 1, 2031623, 2, 1, 2031624, 2, 1, 2031625, 2, 1, 2031626, 2, 1, 2031627, 2, 1, 2031628, 2, 2, 2097152, 2, 65536, 2097153, 2, 65537, 2097154, 2, 65537, 2097155, 2, 65537, 2097156, 2, 65537, 2097157, 2, 65537, 2097158, 2, 65537, 2097159, 2, 65537, 2097160, 2, 65537, 2097161, 2, 65537, 2097162, 2, 65537, 2097163, 2, 65537, 2097164, 2, 65538, 2162688, 2, 65536, 2162689, 2, 65537, 2162690, 2, 65537, 2162691, 2, 65537, 2162692, 2, 65537, 2162693, 2, 65537, 2162694, 2, 65537, 2162695, 2, 65537, 2162696, 2, 65537, 2162697, 2, 65537, 2162698, 2, 65537, 2162699, 2, 65537, 2162700, 2, 65538, 2228224, 2, 65536, 2228225, 2, 65537, 2228226, 2, 65537, 2228227, 2, 65537, 2228228, 2, 65537, 2228229, 2, 65537, 2228230, 2, 65537, 2228231, 2, 65537, 2228232, 2, 65537, 2228233, 2, 65537, 2228234, 2, 65537, 2228235, 2, 65537, 2228236, 2, 65538, 2293760, 2, 65536, 2293761, 2, 65537, 2293762, 2, 65537, 2293763, 2, 65537, 2293764, 2, 65537, 2293765, 2, 65537, 2293766, 2, 65537, 2293767, 2, 65537, 2293768, 2, 65537, 2293769, 2, 65537, 2293770, 2, 65537, 2293771, 2, 65537, 2293772, 2, 65538, 2359296, 2, 65536, 2359297, 2, 65537, 2359298, 2, 65537, 2359299, 2, 65537, 2359300, 2, 65537, 2359301, 2, 65537, 2359302, 2, 65537, 2359303, 2, 65537, 2359304, 2, 65537, 2359305, 2, 65537, 2359306, 2, 65537, 2359307, 2, 65537, 2359308, 2, 65538, 2424832, 2, 131072, 2424833, 2, 131073, 2424834, 2, 131073, 2424835, 2, 131073, 2424836, 2, 131073, 2424837, 2, 131073, 2424838, 2, 131073, 2424839, 2, 131073, 2424840, 2, 131073, 2424841, 2, 131073, 2424842, 2, 131073, 2424843, 2, 131073, 2424844, 2, 131074 )
+
+[node name="metal" parent="tilemaps" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 458751, 1, 3, 524287, 1, 65539, 589823, 1, 65539, 655359, 1, 65539, 720895, 1, 65539, 786431, 1, 65539, 851967, 1, 65539, 917503, 1, 65539, 983039, 1, 65539, 1048575, 1, 65539, 1114111, 1, 65539, 1179647, 1, 65539, 1245183, 1, 65539, 1310719, 1, 65539, 1376255, 1, 65539, 1441791, 1, 65539, 1507327, 1, 65539, 1572863, 1, 65539, 1638399, 1, 65539, 1703935, 1, 65539, 1769471, 1, 65539, 1835007, 1, 65539, 1900543, 1, 65539, 1966079, 1, 65539, 2031615, 1, 131075 )
+
+[node name="bricks" parent="tilemaps" instance=ExtResource( 1 )]
+
+[node name="one-way_grass" parent="tilemaps" instance=ExtResource( 8 )]
+tile_data = PoolIntArray( 852002, 2, 1, 852003, 2, 1, 852004, 2, 1, 852005, 2, 1, 852006, 2, 1, 852007, 2, 1, 852008, 2, 1, 852009, 2, 1, 852010, 2, 1 )
+
+[node name="one-way_metal" parent="tilemaps" instance=ExtResource( 4 )]
+
+[node name="one-way_bricks" parent="tilemaps" instance=ExtResource( 7 )]
+
+[node name="checkpoints" type="Node2D" parent="."]
+
+[node name="start" parent="checkpoints" instance=ExtResource( 12 )]
+position = Vector2( 147, 464 )
+
+[node name="end" parent="checkpoints" instance=ExtResource( 16 )]
+position = Vector2( 952, -288 )
+
+[node name="traps" type="Node2D" parent="."]
+
+[node name="trampoline" parent="traps" instance=ExtResource( 11 )]
+position = Vector2( 569, 418 )
+
+[node name="fan" parent="traps" instance=ExtResource( 14 )]
+position = Vector2( 808, 204 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="slime" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 429, 368 )
+detects_void = true
+
+[node name="trunk" parent="enemies" instance=ExtResource( 13 )]
+position = Vector2( 669, 196 )
+direction = -1
+can_move = false
+bullet_cooldown = 0.5
+
+[node name="mushroom" parent="enemies" instance=ExtResource( 15 )]
+position = Vector2( 951, -50 )
+
+[node name="players" type="Node2D" parent="."]
+
+[node name="pink_man" parent="players" instance=ExtResource( 6 )]
+position = Vector2( 28, 312 )
+
+[node name="Camera2D" type="Camera2D" parent="players/pink_man"]
+current = true
+zoom = Vector2( 0.75, 0.75 )
+process_mode = 0
+limit_left = 0
+limit_bottom = 590
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+editor_draw_limits = true
+
+[node name="fruits" type="Node2D" parent="."]
+
+[node name="cherry2" parent="fruits" instance=ExtResource( 18 )]
+position = Vector2( 568, 368 )
+
+[node name="cherry4" parent="fruits" instance=ExtResource( 18 )]
+position = Vector2( 568, 304 )
+
+[node name="cherry6" parent="fruits" instance=ExtResource( 18 )]
+position = Vector2( 568, 240 )
+
+[node name="cherry7" parent="fruits" instance=ExtResource( 18 )]
+position = Vector2( 672, 168 )
+
+[node name="cherry8" parent="fruits" instance=ExtResource( 18 )]
+position = Vector2( 672, 144 )
+
+[node name="cherry9" parent="fruits" instance=ExtResource( 18 )]
+position = Vector2( 672, 120 )
+
+[node name="cherry10" parent="fruits" instance=ExtResource( 18 )]
+position = Vector2( 672, 96 )
+
+[node name="cherry11" parent="fruits" instance=ExtResource( 18 )]
+position = Vector2( 968, -312 )
+
+[node name="cherry12" parent="fruits" instance=ExtResource( 18 )]
+position = Vector2( 936, -312 )
+
+[node name="hud" parent="." instance=ExtResource( 17 )]
+
+[connection signal="timeout" from="passed_time_timer" to="." method="_on_passed_time_timer_timeout"]

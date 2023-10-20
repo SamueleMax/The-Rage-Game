@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/Squares.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.976471, 0.952941, 0.352941, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+Button/colors/font_color = Color( 0, 0, 0, 1 )
+Button/colors/font_color_focus = Color( 0, 0, 0, 1 )
+Button/colors/font_color_hover = Color( 1, 0.431373, 0.152941, 1 )
+Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+Button/fonts/font = SubResource( 1 )
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 2 )

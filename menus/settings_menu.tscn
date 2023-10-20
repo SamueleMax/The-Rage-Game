@@ -1,0 +1,188 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/fonts/Squares.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://themes/button.tres" type="Theme" id=2]
+[ext_resource path="res://assets/UI/buttons/BackButton.png" type="Texture" id=3]
+[ext_resource path="res://scripts/menus/settings.gd" type="Script" id=4]
+[ext_resource path="res://assets/UI/icons/pink.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/icons/blue.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/icons/frog.png" type="Texture" id=7]
+[ext_resource path="res://assets/UI/icons/mask.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.976471, 0.952941, 0.352941, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id=4]
+Button/colors/font_color = Color( 0, 0, 0, 1 )
+Button/colors/font_color_focus = Color( 0, 0, 0, 1 )
+Button/colors/font_color_hover = Color( 1, 0.431373, 0.152941, 1 )
+Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+Button/fonts/font = SubResource( 3 )
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 2 )
+
+[node name="settings_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -634, -102 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.976471, 0.952941, 0.352941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -342.5
+margin_top = 50.0
+margin_right = 342.5
+margin_bottom = 156.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Settings"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_button" type="TextureButton" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -64.0
+margin_right = 64.0
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fullscreen_button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -211.5
+margin_top = 184.0
+margin_right = 211.5
+margin_bottom = 276.0
+theme = ExtResource( 2 )
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="secret_settings_button" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 114.0
+margin_top = 540.0
+margin_right = 510.0
+margin_bottom = 600.0
+theme = SubResource( 4 )
+text = "Secret   settings"
+
+[node name="player_skin" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = 92.0
+margin_right = 20.0
+margin_bottom = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pink" type="TextureButton" parent="player_skin"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -216.0
+margin_top = -60.0
+margin_right = -112.0
+margin_bottom = 44.0
+texture_normal = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blue" type="TextureButton" parent="player_skin"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -60.0
+margin_right = -4.0
+margin_bottom = 44.0
+texture_normal = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mask" type="TextureButton" parent="player_skin"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 4.0
+margin_top = -60.0
+margin_right = 108.0
+margin_bottom = 44.0
+texture_normal = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="frog" type="TextureButton" parent="player_skin"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 116.0
+margin_top = -60.0
+margin_right = 220.0
+margin_bottom = 44.0
+texture_normal = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="fullscreen_button" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="secret_settings_button" to="." method="_on_secret_settings_button_pressed"]
+[connection signal="pressed" from="player_skin/pink" to="." method="_on_pink_pressed"]
+[connection signal="pressed" from="player_skin/blue" to="." method="_on_blue_pressed"]
+[connection signal="pressed" from="player_skin/mask" to="." method="_on_mask_pressed"]
+[connection signal="pressed" from="player_skin/frog" to="." method="_on_frog_pressed"]

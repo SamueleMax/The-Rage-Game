@@ -1,0 +1,168 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://tilemaps/bricks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tilemaps/grass.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tilemaps/metal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tilemaps/one-way_metal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/backgrounds/Yellow.png" type="Texture" id=5]
+[ext_resource path="res://players/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tilemaps/one-way_bricks.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tilemaps/one-way_grass.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/levels/level8.gd" type="Script" id=9]
+[ext_resource path="res://enemies/mushroom.tscn" type="PackedScene" id=10]
+[ext_resource path="res://items/fruits/cherry.tscn" type="PackedScene" id=11]
+[ext_resource path="res://items/checkpoints/start.tscn" type="PackedScene" id=12]
+[ext_resource path="res://enemies/slime.tscn" type="PackedScene" id=13]
+[ext_resource path="res://enemies/rino.tscn" type="PackedScene" id=14]
+[ext_resource path="res://items/checkpoints/end.tscn" type="PackedScene" id=15]
+[ext_resource path="res://hud/hud.tscn" type="PackedScene" id=17]
+
+[node name="level8" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="passed_time_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="background" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="background"]
+motion_mirroring = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="background/ParallaxLayer"]
+scale = Vector2( 30, 30 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tilemaps" type="Node2D" parent="."]
+
+[node name="grass" parent="tilemaps" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 131127, 2, 0, 131128, 2, 1, 131129, 2, 1, 131130, 2, 1, 131131, 2, 1, 131132, 2, 1, 131133, 2, 1, 131134, 2, 1, 131135, 2, 1, 131136, 2, 1, 131137, 2, 1, 131138, 2, 1, 131139, 2, 1, 131140, 2, 1, 131141, 2, 1, 131142, 2, 1, 131143, 2, 1, 131144, 2, 1, 131145, 2, 1, 131146, 2, 1, 131147, 2, 1, 131148, 2, 2, 196663, 2, 131072, 196664, 2, 131073, 196665, 2, 131073, 196666, 2, 131073, 196667, 2, 131073, 196668, 2, 131073, 196669, 2, 131073, 196670, 2, 131073, 196671, 2, 131073, 196672, 2, 131073, 196673, 2, 131073, 196674, 2, 131073, 196675, 2, 131073, 196676, 2, 131073, 196677, 2, 131073, 196678, 2, 131073, 196679, 2, 131073, 196680, 2, 131073, 196681, 2, 131073, 196682, 2, 131073, 196683, 2, 131073, 196684, 2, 131074, 458805, 2, 0, 458806, 2, 1, 458807, 2, 1, 458808, 2, 1, 458809, 2, 1, 458810, 2, 1, 458811, 2, 1, 458812, 2, 1, 458813, 2, 1, 458814, 2, 1, 458815, 2, 1, 458816, 2, 2, 524341, 2, 131072, 524342, 2, 131073, 524343, 2, 131073, 524344, 2, 131073, 524345, 2, 131073, 524346, 2, 131073, 524347, 2, 131073, 524348, 2, 131073, 524349, 2, 131073, 524350, 2, 131073, 524351, 2, 131073, 524352, 2, 131074, 786487, 2, 0, 786488, 2, 1, 786489, 2, 1, 786490, 2, 1, 786491, 2, 1, 786492, 2, 1, 786493, 2, 1, 786494, 2, 1, 786495, 2, 1, 786496, 2, 1, 786497, 2, 1, 786498, 2, 2, 852023, 2, 131072, 852024, 2, 131073, 852025, 2, 131073, 852026, 2, 131073, 852027, 2, 131073, 852028, 2, 131073, 852029, 2, 131073, 852030, 2, 131073, 852031, 2, 131073, 852032, 2, 131073, 852033, 2, 131073, 852034, 2, 131074, 1114165, 2, 0, 1114166, 2, 1, 1114167, 2, 1, 1114168, 2, 1, 1114169, 2, 1, 1114170, 2, 1, 1114171, 2, 1, 1114172, 2, 1, 1114173, 2, 1, 1114174, 2, 1, 1114175, 2, 1, 1114176, 2, 2, 1179701, 2, 131072, 1179702, 2, 131073, 1179703, 2, 131073, 1179704, 2, 131073, 1179705, 2, 131073, 1179706, 2, 131073, 1179707, 2, 131073, 1179708, 2, 131073, 1179709, 2, 131073, 1179710, 2, 131073, 1179711, 2, 131073, 1179712, 2, 131074, 1441847, 2, 0, 1441848, 2, 1, 1441849, 2, 1, 1441850, 2, 1, 1441851, 2, 1, 1441852, 2, 1, 1441853, 2, 1, 1441854, 2, 1, 1441855, 2, 1, 1441856, 2, 1, 1441857, 2, 1, 1441858, 2, 2, 1507383, 2, 131072, 1507384, 2, 131073, 1507385, 2, 131073, 1507386, 2, 131073, 1507387, 2, 131073, 1507388, 2, 131073, 1507389, 2, 131073, 1507390, 2, 131073, 1507391, 2, 131073, 1507392, 2, 131073, 1507393, 2, 131073, 1507394, 2, 131074, 1703972, 2, 1, 1703973, 2, 1, 1703974, 2, 1, 1703975, 2, 1, 1835035, 2, 1, 1835036, 2, 1, 1835037, 2, 1, 1835038, 2, 1, 2031616, 2, 0, 2031617, 2, 1, 2031618, 2, 1, 2031619, 2, 1, 2031620, 2, 1, 2031621, 2, 1, 2031622, 2, 1, 2031623, 2, 1, 2031624, 2, 1, 2031625, 2, 1, 2031626, 2, 1, 2031627, 2, 1, 2031628, 2, 1, 2031629, 2, 1, 2031630, 2, 2, 2031637, 2, 0, 2031638, 2, 1, 2031639, 2, 1, 2031640, 2, 2, 2097152, 2, 65536, 2097153, 2, 65537, 2097154, 2, 65537, 2097155, 2, 65537, 2097156, 2, 65537, 2097157, 2, 65537, 2097158, 2, 65537, 2097159, 2, 65537, 2097160, 2, 65537, 2097161, 2, 65537, 2097162, 2, 65537, 2097163, 2, 65537, 2097164, 2, 65537, 2097165, 2, 65537, 2097166, 2, 65538, 2097173, 2, 65536, 2097174, 2, 65537, 2097175, 2, 65537, 2097176, 2, 65538, 2162688, 2, 65536, 2162689, 2, 65537, 2162690, 2, 65537, 2162691, 2, 65537, 2162692, 2, 65537, 2162693, 2, 65537, 2162694, 2, 65537, 2162695, 2, 65537, 2162696, 2, 65537, 2162697, 2, 65537, 2162698, 2, 65537, 2162699, 2, 65537, 2162700, 2, 65537, 2162701, 2, 65537, 2162702, 2, 65538, 2162709, 2, 131072, 2162710, 2, 131073, 2162711, 2, 131073, 2162712, 2, 131074, 2228224, 2, 65536, 2228225, 2, 65537, 2228226, 2, 65537, 2228227, 2, 65537, 2228228, 2, 65537, 2228229, 2, 65537, 2228230, 2, 65537, 2228231, 2, 65537, 2228232, 2, 65537, 2228233, 2, 65537, 2228234, 2, 65537, 2228235, 2, 65537, 2228236, 2, 65537, 2228237, 2, 65537, 2228238, 2, 65538, 2293760, 2, 65536, 2293761, 2, 65537, 2293762, 2, 65537, 2293763, 2, 65537, 2293764, 2, 65537, 2293765, 2, 65537, 2293766, 2, 65537, 2293767, 2, 65537, 2293768, 2, 65537, 2293769, 2, 65537, 2293770, 2, 65537, 2293771, 2, 65537, 2293772, 2, 65537, 2293773, 2, 65537, 2293774, 2, 65538, 2293807, 2, 1, 2293808, 2, 1, 2293809, 2, 1, 2293810, 2, 1, 2359296, 2, 65536, 2359297, 2, 65537, 2359298, 2, 65537, 2359299, 2, 65537, 2359300, 2, 65537, 2359301, 2, 65537, 2359302, 2, 65537, 2359303, 2, 65537, 2359304, 2, 65537, 2359305, 2, 65537, 2359306, 2, 65537, 2359307, 2, 65537, 2359308, 2, 65537, 2359309, 2, 65537, 2359310, 2, 65538, 2424832, 2, 131072, 2424833, 2, 131073, 2424834, 2, 131073, 2424835, 2, 131073, 2424836, 2, 131073, 2424837, 2, 131073, 2424838, 2, 131073, 2424839, 2, 131073, 2424840, 2, 131073, 2424841, 2, 131073, 2424842, 2, 131073, 2424843, 2, 131073, 2424844, 2, 131073, 2424845, 2, 131073, 2424846, 2, 131074 )
+
+[node name="metal" parent="tilemaps" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 458751, 1, 3, 524287, 1, 65539, 589823, 1, 65539, 655359, 1, 65539, 720895, 1, 65539, 786431, 1, 65539, 851967, 1, 65539, 917503, 1, 65539, 983039, 1, 65539, 1048575, 1, 65539, 1114111, 1, 65539, 1179647, 1, 65539, 1245183, 1, 65539, 1310719, 1, 65539, 1376255, 1, 65539, 1441791, 1, 65539, 1507327, 1, 65539, 1572863, 1, 65539, 1638399, 1, 65539, 1703935, 1, 65539, 1769471, 1, 65539, 1835007, 1, 65539, 1900543, 1, 65539, 1966079, 1, 65539, 2031615, 1, 131075 )
+
+[node name="bricks" parent="tilemaps" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -524218, 0, 0, -524217, 0, 2, -458682, 0, 65536, -458681, 0, 65538, -393146, 0, 65536, -393145, 0, 65538, -327610, 0, 65536, -327609, 0, 65538, -262074, 0, 65536, -262073, 0, 65538, -196538, 0, 65536, -196537, 0, 65538, -131002, 0, 65536, -131001, 0, 65538, -65466, 0, 65536, -65465, 0, 65538, 70, 0, 65536, 71, 0, 65538, 65606, 0, 131072, 65607, 0, 131074 )
+
+[node name="one-way_grass" parent="tilemaps" instance=ExtResource( 8 )]
+
+[node name="one-way_metal" parent="tilemaps" instance=ExtResource( 4 )]
+
+[node name="one-way_bricks" parent="tilemaps" instance=ExtResource( 7 )]
+
+[node name="labels" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="checkpoints" type="Node2D" parent="."]
+
+[node name="start" parent="checkpoints" instance=ExtResource( 12 )]
+position = Vector2( 147, 464 )
+
+[node name="end" parent="checkpoints" instance=ExtResource( 15 )]
+position = Vector2( 1209, 0 )
+
+[node name="traps" type="Node2D" parent="."]
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="mushroom1" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 784, 545 )
+
+[node name="slime1" parent="enemies" instance=ExtResource( 13 )]
+position = Vector2( 964, 259 )
+detects_void = true
+
+[node name="slime2" parent="enemies" instance=ExtResource( 13 )]
+position = Vector2( 964, 259 )
+detects_void = true
+
+[node name="slime3" parent="enemies" instance=ExtResource( 13 )]
+position = Vector2( 958, 176 )
+detects_void = true
+
+[node name="slime4" parent="enemies" instance=ExtResource( 13 )]
+position = Vector2( 974, 96 )
+detects_void = true
+
+[node name="rino1" parent="enemies" instance=ExtResource( 14 )]
+position = Vector2( 1083, 11 )
+detects_void = true
+
+[node name="players" type="Node2D" parent="."]
+
+[node name="pink_man" parent="players" instance=ExtResource( 6 )]
+position = Vector2( 28, 312 )
+
+[node name="Camera2D" type="Camera2D" parent="players/pink_man"]
+current = true
+zoom = Vector2( 0.75, 0.75 )
+process_mode = 0
+limit_left = 0
+limit_bottom = 590
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+editor_draw_limits = true
+
+[node name="fruits" type="Node2D" parent="."]
+
+[node name="cherry1" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 888, 328 )
+
+[node name="cherry2" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 912, 328 )
+
+[node name="cherry3" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 936, 328 )
+
+[node name="cherry4" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 960, 328 )
+
+[node name="cherry5" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 984, 328 )
+
+[node name="cherry6" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 984, 328 )
+
+[node name="cherry7" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1008, 328 )
+
+[node name="cherry8" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1032, 328 )
+
+[node name="cherry9" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 888, 8 )
+
+[node name="cherry10" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 912, 8 )
+
+[node name="cherry11" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 936, 8 )
+
+[node name="cherry12" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 960, 8 )
+
+[node name="cherry13" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 984, 8 )
+
+[node name="cherry14" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1008, 8 )
+
+[node name="cherry15" parent="fruits" instance=ExtResource( 11 )]
+position = Vector2( 1032, 8 )
+
+[node name="hud" parent="." instance=ExtResource( 17 )]
+
+[connection signal="timeout" from="passed_time_timer" to="." method="_on_passed_time_timer_timeout"]

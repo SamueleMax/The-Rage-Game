@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="rock_head" type="KinematicBody2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
