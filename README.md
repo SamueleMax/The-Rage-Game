@@ -3,7 +3,7 @@
 *Il gioco è stato testato su Linux e su Windows, ma non su Mac*
 
 ## Cloning
-1. Scaricare Godot 3 (non 4)
+1. Scaricare [Godot Engine 3](https://godotengine.org/download/3.x/) (non 4)
 2. Clonare questo repo
 3. Aprire Godot e importare il file chiamato "project.godot"
 
